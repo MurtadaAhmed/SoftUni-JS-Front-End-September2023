@@ -62,6 +62,14 @@ body {
     background-color: #222222;
 }
 
+.divider.horizontal {
+    height: 1px;
+    width: 3rem;
+    background-color: #222222;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 #hero.page-section {
     position:relative;
 }
