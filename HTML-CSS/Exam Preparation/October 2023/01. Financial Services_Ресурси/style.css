@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+blue bg: #819daf
+button bg: #327dc4
+blue text: #3e80c5
+
+
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+
+}
+body {
+    padding: 2em;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.section-header {
+    padding-bottom: 1.5em;
+    text-align: center;
+
+}
+
+.section-header h2 span {
+    color: #3e80c5;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-content {
+    display: flex;
+    gap: 1em;
+}
+
+.section-content article,
+.section-content article .media {
+    display: block;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+.section-content article {
+    flex: 1 1 30%;
+    background-color: #819daf;
+}
+
+.section-content article .entry-content {
+    padding: 1.5em;
+}
+
+.section-content article .entry-content p {
+    margin: 1em 0 1em 0;
+}
+
+.section-content article .button {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px sold #3d4d57;
+    background-color: #327dc4;
+    outline: 1px solid #fff;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+
+}
+

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: grey;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: 500;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    width: 1300px;
+    margin: 0 auto;
+    
+}
+
+section .picture,
+section .info {
+    width: 50%;
+
+}
+
+.features {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.features .feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.features .feature .feature-icon {
+    width: 80px;
+}
+
+.features .feature .feature-title ,
+.features .feature .feature-desc {
+    margin: 0;
+} 

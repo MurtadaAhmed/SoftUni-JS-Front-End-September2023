@@ -1,0 +1,214 @@
+/*
+
+red banner: #d01919
+coaches bg: #efefef
+
+
+*/
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 12px/1.5 Verdana, sans-serif; 
+    
+
+}
+
+body {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-image: url(image/fitness-main.jpg);
+    background-size: contain;
+    background-position: center -22em;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-top-bar {
+    background-color: #d01919;
+    color: white;
+    
+    
+}
+
+.section-top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    max-width: initial;
+}
+
+.section-top-bar .socials {
+    display: flex;
+}
+
+.section-top-bar .socials li,
+.section-top-bar .socials a
+{
+    display: block;
+
+}
+
+.section-top-bar .socials li {
+    padding: 0 0.5em;
+}
+
+.section-top-bar a {
+    color: white;
+}
+
+.section-coaches {
+    background-color: #efefef;
+}
+
+
+
+
+.section-site-header {
+    color: white;
+    
+}
+
+.section-site-header .container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+}
+
+.section-site-header a {
+    color: white;
+}
+
+
+.section-site-header .site-title {
+    display: none;
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li,
+.main-nav a {
+    display: block;
+}
+
+.main-nav a {
+    padding: 0.5em 1em;
+
+}
+
+
+.section-hero-banner {
+    
+    color: white;
+    font-size: 1.2em;
+    
+}
+
+.section-hero-banner h2 {
+    font-size: 3em;
+    font-weight: normal;
+    letter-spacing: 0.3em;
+}
+
+
+.section-hero-banner a {
+    color: white;
+}
+
+.section-hero-banner .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em 2em;
+    height: 30em;
+}
+
+.section-hero-banner .container p {
+    max-width: 54ch;
+    text-align: center;
+    margin: 1em;
+}
+
+.section-hero-banner .container a {
+    display: block;
+    text-decoration: none;
+    background: #d01919;
+    color: white;
+    padding: 0.5em;
+    border-radius: 0.3em;
+
+
+}
+
+
+.section-columns .container {
+    padding: 2em;
+}
+
+.section-columns h3 span {
+    display: block;
+    margin: 1em auto;
+    width: 5ch;
+    height: 2px;
+    background: red;
+}
+
+
+.section-columns .section-header {
+    text-align: center;
+}
+
+.section-columns .section-content {
+    display: flex;
+    gap: 2em;
+}
+
+.section-columns .section-content article {
+    flex:1 1 30%;
+    text-align: center;
+}
+
+.section-site-footer {
+    background-color: #d01919;
+    color: white;
+}
+
+
+.section-site-footer p {
+    text-align: center;
+    padding: 1em;
+}
+
+.section-features img {
+    width: 15%;
+    margin: 0 auto;
+}
+
+.section-features h4 {
+    color: #d01919;
+}
+
+.section-coaches h5 {
+    color: #d01919;
+}
+
+.section-features {
+    background-color: white;
+}
