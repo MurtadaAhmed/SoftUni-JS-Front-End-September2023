@@ -30,24 +30,75 @@ function solve(input) {
         commandRunner[commandName](...rest);
     });
 
+    const todoPoints = calculateTotalForStatus("ToDo");
+    const inProgressPoints = calculateTotalForStatus("In Progress");
+    const reviewPoints = calculateTotalForStatus("Code Review");
+    const donePoints = calculateTotalForStatus("Done");
+
+    console.log(`ToDo: ${todoPoints}pts`);
+    console.log(`In Progress: ${inProgressPoints}pts`);
+    console.log(`Code Review: ${reviewPoints}pts`);
+    console.log(`Done Points: ${donePoints}pts`);
+
+    if (donePoints >= todoPoints + inProgressPoints + reviewPoints) {
+        console.log("Sprint was successful!")
+    } else {
+        console.log("Sprint was unsuccessful...")
+    }
+
+    function calculateTotalForStatus(status) {
+        return Object.values(board).reduce((acc, curr) => {
+            const boardTotal = curr
+                .filter((t)=> t.status === status)
+                .reduce((tasksTotal, task) => tasksTotal + task.points, 0);
+            return acc + boardTotal;
+        }, 0)
+    }
+
+
     function addNewTask(assignee, taskID, title, status, points) {
         if (!board.hasOwnProperty(assignee)) {
             console.log(`Assignee ${assignee} does not exist on the board!`);
             return;
         }
 
+        board[assignee].push({taskID, title, status, points: Number(points)})
+
     }
 
     function changeTaskStatus(assignee, taskID, status) {
+        if (!board.hasOwnProperty(assignee)) {
+            console.log(`Assignee ${assignee} does not exist on the board!`);
+            return;
+        }
 
+        const task = board[assignee].find(t => t.taskID === taskID);
+
+        if (!task) {
+            console.log(`Task with ID ${taskID} does not exist for ${assignee}!`);
+            return;
+        }
+
+        task.status = status;
     }
 
     function removeTask(assignee, index) {
+        if (!board.hasOwnProperty(assignee)) {
+            console.log(`Assignee ${assignee} does not exist on the board!`);
+            return;
+        }
+
+        if (index < 0 || index >= board[assignee].length) {
+            console.log("Index is out of range!");
+            return;
+
+        }
+
+        board[assignee].splice(index, 1);
+
 
     }
 }
-
-
 
 
 solve(
