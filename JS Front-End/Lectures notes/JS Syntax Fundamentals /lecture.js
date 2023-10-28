@@ -131,7 +131,7 @@ for (let i = 10; i > 1; i--) {
 }
 
 i = 0
-while (i <=5) {
+while (i <= 5) {
     console.log(i);
     i++
 }
@@ -139,7 +139,7 @@ while (i <=5) {
 console.log("-----------------------------------------")
 
 function multiply(num) {
-    console.log(num*2)
+    console.log(num * 2)
 }
 
 multiply(5)
@@ -147,7 +147,7 @@ multiply(5)
 console.log("-----------------------------------------")
 
 function checkNum(num) {
-    if (num >=5.50 ){
+    if (num >= 5.50) {
         console.log("Execellent")
     } else {
         console.log("Not excellent")
@@ -162,6 +162,68 @@ console.log("-----------------------------------------")
 function printMonth(num) {
     const isNotValidMonth = num < 0 || num > 12
     if (isNotValidMonth) {
-    
+
     }
 }
+console.log("-----------------------------------------")
+
+function printStarts(count) {
+    console.log("*".repeat(count))
+}
+printStarts(10)
+
+console.log("-----------------------------------------")
+
+function functionName(input) {
+    //TODO
+};
+
+// let functionVariable = functionName(input){
+//     //TODO
+//     };
+
+console.log("-----------------------------------------")
+
+function countDOwn(input) {
+    console.log(input)
+    if (input > 0) {
+        countDOwn(input - 1)
+    }
+}
+
+countDOwn(10)
+
+console.log("-----------------------------------------")
+
+function printHeader() {
+    console.log('~~~- {@} -~~~');
+    console.log('~- Certificate -~');
+    console.log('~~~- ~---~ -~~~');
+}
+printHeader();
+
+console.log("-----------------------------------------")
+
+function returnFunction(firstName, lastName) {
+    return firstName + ' ' + lastName
+}
+
+
+console.log(returnFunction("Muri", "Murti"))
+
+console.log("-----------------------------------------")
+
+// checking if array index is valid
+
+function checkArrayIndex(index, array) {
+    if (index >= 0 && Number.isInteger(index) && index < array.length) {
+        console.log("True")
+    } else {
+        console.log("False")
+    }
+}
+
+checkArrayIndex(0, [1, 2, 3])
+
+console.log("-----------------------------------------")
+
