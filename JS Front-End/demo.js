@@ -188,3 +188,9 @@ console.log(student.age)
 console.log(student.city)
 
 student.getAllInfo()
+
+line("DOM")
+
+let h1Element = document.getElementsByTagName('h1')[0];
+let secondLi = document.getElementsByTagName("li")[1];
+secondLi.innerHTML += "Done"
