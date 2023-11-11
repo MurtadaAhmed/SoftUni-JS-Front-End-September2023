@@ -9,21 +9,22 @@ function solve(input) {
         let command = lineArr[0];
         let firstHorse = lineArr[1];
         let secondHorse = lineArr[2];
+        let horsePosition = "";
 
         switch(command) {
             case "Retake":
                 let firstHorsePosition = horses.indexOf(firstHorse)
                 let secondHorsePosition = horses.indexOf(secondHorse)
                 if (firstHorsePosition < secondHorsePosition) {
-                    horses[firstHorsePosition] = secondHorsePosition;
-                    horses[secondHorsePosition] = firstHorsePosition;
+                    horses[firstHorsePosition] = secondHorse;
+                    horses[secondHorsePosition] = firstHorse;
                     
                     console.log(`${firstHorse} retakes ${secondHorse}.`)
                 }
                 break;
 
             case "Trouble":
-                let horsePosition = horses.indexOf(firstHorse)
+                horsePosition = horses.indexOf(firstHorse)
                 if (horsePosition > 0) {
                     horses[horsePosition] = horses[horsePosition - 1]
                     horses[horsePosition - 1] = firstHorse;
@@ -34,10 +35,32 @@ function solve(input) {
                 break;
 
             case "Rage":
+                horsePosition = horses.indexOf(firstHorse)
+                let lastIndex = horses.length - 1
+
+                if (horsePosition != lastIndex) {
+                    let targetIndex = Math.min(horsePosition + 2 , lastIndex)
+
+                    let CurrentHorseRemoved = horses.splice(horsePosition, 1)[0]
+
+                    horses.splice(targetIndex, 0, CurrentHorseRemoved)
+                }
+
+
+                console.log(`${firstHorse} rages 2 positions ahead.`)
+
 
                 break;
 
             case "Miracle":
+                let lastIndexInArray = horses.length - 1
+                let removedHorse = horses.splice(0, 1)[0]
+                
+
+                horses.splice(lastIndexInArray, 0, removedHorse)
+
+
+                console.log(`What a miracle - ${horses[lastIndexInArray]} becomes first.`)
 
                 break;
         }
@@ -46,7 +69,8 @@ function solve(input) {
         line = input.shift();
     }
     
-    // TODO: print the result
+    console.log(horses.join("->"))
+    console.log(`The winner is: ${horses[horses.length - 1]}`)
 
 }
 
