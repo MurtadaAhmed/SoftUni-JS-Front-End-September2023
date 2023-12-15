@@ -8,19 +8,20 @@ let date = document.getElementById('date')
 let addWeatherButton = document.getElementById('add-weather')
 let editWeatherButton = document.getElementById('edit-weather')
 let divList = document.getElementById('list')
-let currentWeatherId = null // used for Edit Vacation to store the id of the current weather
+let currentWeatherId = null // will be for Edit Vacation header to store the id of the current weather for the PUT request
 loadButton.addEventListener('click', loadWeather)
 
 // function for loading the weather
 async function loadWeather(){
-    // clearing the list
+    // clearing the list item so the elements don't duplicate when the button is clicked
     divList.innerHTML = '';
 
-    // fetchubg the data    
+    // fetchiung the data    
     let response = await fetch(baseUrl);
     let data = await response.json();
-    let dataValues = Object.values(data);
+    let dataValues = Object.values(data); 
 
+    // looping through the fetched data
     for (const element of dataValues) {
 
         // extracting the current element
@@ -29,7 +30,7 @@ async function loadWeather(){
         let currentDate = element.date;
         let currentId = element._id;
 
-        // creating the elements
+        // creating the elements to be filled with the fetched data after that
 
         let divContainer = document.createElement('div');
         divContainer.className = 'container';
@@ -50,7 +51,7 @@ async function loadWeather(){
         deleteButton.textContent = 'Delete';
         deleteButton.className = 'delete-btn';
 
-        // appending the elements
+        // appending the elements to its consequent parents
         divList.appendChild(divContainer);
         divContainer.appendChild(h2Location);
         divContainer.appendChild(h3Date);
@@ -59,12 +60,12 @@ async function loadWeather(){
         divButtonsContainer.appendChild(changeButton);
         divButtonsContainer.appendChild(deleteButton);
 
-        // adding the values to the elements
+        // adding the feteched data to the created elements
         h2Location.textContent = currentLocation;
         h3Date.textContent = currentDate;
         h3Temperature.textContent = currentTemperature;
 
-        // adding the event listeners
+        // adding the event listener the change button
         changeButton.addEventListener('click', async () => {
             // filling the input fields with the current values
             document.getElementById('location').value = currentLocation;
@@ -80,6 +81,7 @@ async function loadWeather(){
             currentWeatherId = currentId;
         })
 
+        // adding the event listener to the delete button
         deleteButton.addEventListener('click',  () => {
             // deletinng the current element
             divContainer.remove();
@@ -107,14 +109,14 @@ function addWeather() {
         return;
     }
 
-    // creating the object
+    // creating the object with the values from the inpurt fields
     let obj = {
         location: currentLocation,
         temperature: currentTemperature,
         date: currentDate
     }
 
-    // posting the object
+    // POST request 
     fetch(baseUrl, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -126,7 +128,7 @@ function addWeather() {
     temperature.value = '';
     date.value = '';
 
-    // reloading the weather
+    // reloading the weather list
     loadWeather();
 
 }
@@ -135,19 +137,20 @@ function addWeather() {
 // function for editing the weather
 editWeatherButton.addEventListener('click', async (e) => {
     e.preventDefault();
+    // extracting the updated values from the input fields
     let currentlocation = document.getElementById('location').value;
     let currentTemperature = document.getElementById('temperature').value;
     let currentDate = document.getElementById('date').value;
     let currentId = currentWeatherId;
 
-    // creating the object
+    // creating the object with the updated values
     let obj = {
         location: currentlocation,
         temperature: currentTemperature,
         date: currentDate,
         _id: currentId,
     }
-    // putting the object
+    // PUT request for the updated values
     await fetch(`${baseUrl}/${currentId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
